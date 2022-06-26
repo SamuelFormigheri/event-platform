@@ -12,7 +12,7 @@ export function Event() {
   return (
     <>
       <Header />
-      <main className="flex flex-1">
+      <main className="flex flex-1 flex-col md:flex-row">
         {slug ? <Video slug={slug} /> : <div className="flex-1" />}
         <Sidebar>
             {data?.lessons.map((lesson) => (

@@ -30,7 +30,7 @@ export function Video({
         </div>
 
         <div className="p-8 max-w[1100px] mx-auto">
-            <div className="flex items-start gap-16">
+            <div className="flex items-start gap-16 flex-col md:flex-row">
                 <div className="flex-1">
                     <h1 className="text-2xl font-bold">
                         {data.lesson.title}
@@ -72,7 +72,7 @@ export function Video({
                 </div>
             </div>
 
-            <div className="gap-8 mt-12 grid grid-cols-2">
+            <div className="gap-8 mt-12 grid  grid-cols-1 md:grid-cols-2">
                 <Card 
                    Icon={FileArrowDown} 
                    title="Material Complementar"
