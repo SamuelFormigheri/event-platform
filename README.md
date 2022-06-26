@@ -25,12 +25,12 @@
     <img
         alt="EventPlatform Subscribe"
         title="Subscribe"
-        src=".github/subscribe.png"
+        src=".github/subscribe.PNG"
     />
     <img
         alt="EventPlatform Event"
         title="Event"
-        src=".github/event.png"
+        src=".github/event.PNG"
     />
 </p>
 
