@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/header"
 import { Lesson } from "../components/lesson"
 import { Sidebar } from "../components/sidebar"
@@ -22,12 +23,14 @@ interface GetLessonsQueryResponse{
 
 
 export function Event() {
-    const {data} = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY);
+  const {data} = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY);
+  const { slug } = useParams<{ slug: string }>();
+
   return (
     <>
       <Header />
       <main className="flex flex-1">
-        <Video />
+        {slug ? <Video slug={slug} /> : <div className="flex-1" />}
         <Sidebar>
             {data?.lessons.map((lesson) => (
                 <Lesson 
