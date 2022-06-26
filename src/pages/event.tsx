@@ -1,29 +1,12 @@
-import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { Header } from "../components/header"
 import { Lesson } from "../components/lesson"
 import { Sidebar } from "../components/sidebar"
 import { Video } from "../components/video"
-import { ILesson } from "../interfaces/lesson";
-
-const GET_LESSONS_QUERY = gql`
-    query{
-        lessons(orderBy: availableAt_ASC, stage: PUBLISHED) {
-            id
-            slug
-            title
-            lessonType
-            availableAt
-        }
-    }
-`;
-interface GetLessonsQueryResponse{
-    lessons: ILesson[];
-}
-
+import { useGetLessonsQuery } from "../graphql/generated";
 
 export function Event() {
-  const {data} = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY);
+  const {data} = useGetLessonsQuery();
   const { slug } = useParams<{ slug: string }>();
 
   return (
